@@ -15,8 +15,8 @@ jobs:
           echo hello > /tmp/test/world.txt
           cat /tmp/test/world.txt
 
-      #- name: Test artifact
-      #  uses: actions/upload-artifact@v2
-      #  with:
-      #    name:test-txt
-      #    path: /tmp/test/world.txt
+      - name: Test artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name:world.txt
+          path: world.txt
