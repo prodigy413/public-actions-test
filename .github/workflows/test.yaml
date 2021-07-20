@@ -11,12 +11,11 @@ jobs:
     steps:
       - name: Run Test
         run: |
-          mkdir -p /tmp/test
-          echo hello > /tmp/test/world.txt
-          cat /tmp/test/world.txt
+          echo hello > world.txt
+          cat world.txt
 
       - name: Test artifact
         uses: actions/upload-artifact@v2
         with:
           name: world.txt
-          path: /tmp/test/world.txt
+          path: ${{ github.workspace }}
