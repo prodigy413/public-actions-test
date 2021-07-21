@@ -6,29 +6,13 @@ on:
       - main
 
 jobs:
-  test-1:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: Run Test
+      - name: get-date
         run: |
-          echo hello > world.txt
-          cat world.txt
+          echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
 
-      - name: Test artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: world.txt
-          path: ${{ github.workspace }}
-
-  test-2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: world.txt
-          path: ${{ github.workspace }}
-
-      - name: Run Test
+      - name: check date
         run: |
-          cat world.txt
+          echo ${date}
