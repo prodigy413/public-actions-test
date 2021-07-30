@@ -12,7 +12,7 @@ jobs:
       - name: get-date
         run: |
           echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
-          testname="obiwankenobi"
+          echo "::set-output name=testname::obiwankenobi
 
       - name: check date
         run: |
