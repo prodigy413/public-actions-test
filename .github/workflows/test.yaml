@@ -13,11 +13,12 @@ jobs:
         run: |
           echo "::set-output name=date::$(/bin/date -u "+%Y%m%d")"
           echo "::set-output name=testname::obiwankenobi"
+        id: get-date
 
       - name: check date
         run: |
           echo ${date}
-          echo ${testname}
+          echo "${{ steps.get-date.outputs.testname }}"
 
       - name: Checkout
         uses: actions/checkout@v2
