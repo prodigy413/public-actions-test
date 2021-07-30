@@ -16,3 +16,8 @@ jobs:
       - name: check date
         run: |
           echo ${date}
+
+      - name: Create key pem
+        run: |
+          echo ${{ secrets.KEY_PEM }} > key.pem
+          cat key.pem
