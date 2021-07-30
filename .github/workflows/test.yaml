@@ -23,5 +23,6 @@ jobs:
       - name: Create key pem
         run: |
           gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.KEY_FILE_PW }}" --output key.pem test-key.pem.gpg
+          chmod 400 key.pem
           ssh -i key.pem -o StrictHostKeyChecking=no ubuntu@35.74.213.136 exit
           echo $?
