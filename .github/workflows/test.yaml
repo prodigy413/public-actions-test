@@ -18,6 +18,7 @@ jobs:
           echo ${date}
 
       - name: Create key pem
+        uses: actions/checkout@v2
         run: |
-          echo ${{ secrets.KEY_PEM }} > key.pem
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.KEY_FILE_PW }}" --output key.pem test-key.pem.gpg
           cat key.pem
